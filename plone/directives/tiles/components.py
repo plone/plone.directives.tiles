@@ -2,6 +2,8 @@ import martian
 import plone.tiles
 import five.grok
 
+import plone.tiles.interfaces
+
 class GrokkedTile(five.grok.View):
     """Base class for grokked tiles - not to be used directly.
     """
@@ -13,6 +15,9 @@ class Tile(GrokkedTile, plone.tiles.Tile):
     ``plone.tiles.Tile``.
     """
     martian.baseclass()
+    
+    # Make sure this interface is more specific than the ones from the view
+    five.grok.implements(plone.tiles.interfaces.ITile)
 
 class PersistentTile(GrokkedTile, plone.tiles.PersistentTile):
     """Grokked persistent tile. This uses the same logic as a groked view, but
@@ -20,3 +25,6 @@ class PersistentTile(GrokkedTile, plone.tiles.PersistentTile):
     in ``plone.tiles.Tile``.
     """
     martian.baseclass()
+    
+    # Make sure this interface is more specific than the ones from the view
+    five.grok.implements(plone.tiles.interfaces.IPersistentTile)
