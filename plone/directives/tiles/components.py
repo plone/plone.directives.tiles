@@ -18,6 +18,10 @@ class Tile(GrokkedTile, plone.tiles.Tile):
     
     # Make sure this interface is more specific than the ones from the view
     five.grok.implementsOnly(plone.tiles.interfaces.ITile)
+    
+    # Take these from the tile class instead of grok.View
+    __getitem__ = plone.tiles.Tile.__getitem__
+    url = plone.tiles.Tile.url
 
 class PersistentTile(GrokkedTile, plone.tiles.PersistentTile):
     """Grokked persistent tile. This uses the same logic as a groked view, but
@@ -28,3 +32,7 @@ class PersistentTile(GrokkedTile, plone.tiles.PersistentTile):
     
     # Make sure this interface is more specific than the ones from the view
     five.grok.implementsOnly(plone.tiles.interfaces.IPersistentTile)
+
+    # Take these from the tile class instead of grok.View
+    __getitem__ = plone.tiles.PersistentTile.__getitem__
+    url = plone.tiles.PersistentTile.url

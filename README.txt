@@ -22,7 +22,6 @@ A basic tile is configured like this::
         
         tiles.add_permission('mypackage.AddMyTile')
         tiles.schema(IMyTileSchema)
-        
 
 Notes:
 
@@ -35,3 +34,12 @@ Notes:
   be associated with a template ``mytiles_templates/mytile.pt`` by default.
 * Unlike a view, the ``name()`` directive is required and should give a dotted
   name for the tile by convention.
+* Dictionary key access (``__getitem__()``) is defined to work as it does in
+  a tile. In a standard grokked view, it will retrieve a macro from the
+  template. In a tile, it is used as a traversal hook to set the tile id,
+  and subsequently to look up views on the tile. See ``plone.tiles`` for
+  details.
+* Similarly, standard grokked views have a ``url()`` method which can be used
+  to construct a URL, possibly with query string parameters. For grokked
+  tiles, this is replaced by a ``url`` read-only property, which returns the
+  canonical tile URL, as per ``plone.tiles``.
