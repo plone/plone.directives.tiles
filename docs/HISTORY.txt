@@ -1,8 +1,0 @@
-Changelog for plone.directives.tiles
-
-    (name of developer listed in brackets)
-
-plone.directives.tiles - 1.0a1 Unreleased
-
-    - Initial package structure.
-      [zopeskel]

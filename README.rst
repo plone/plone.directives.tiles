@@ -1,8 +1,11 @@
-plone.directives.tiles
-======================
-
 This package provides declarative configuration (grokkers) for the
 `plone.tiles <http://pypi.python.org/pypi/plone.tiles>`_ package.
+
+.. contents::
+
+Usage
+=====
+
 
 A basic tile is configured like this::
 
@@ -23,7 +26,9 @@ A basic tile is configured like this::
         tiles.add_permission('mypackage.AddMyTile')
         tiles.schema(IMyTileSchema)
 
-Notes:
+
+Notes
+=====
 
 * A persistent tile can be configured by deriving from ``PersistentTile``
   instead of ``Tile``.
@@ -43,3 +48,13 @@ Notes:
   to construct a URL, possibly with query string parameters. For grokked
   tiles, this is replaced by a ``url`` read-only property, which returns the
   canonical tile URL, as per ``plone.tiles``.
+
+
+Changelog
+=========
+
+1.0 (2012-06-22)
+----------------
+
+- Initial release
+  [garbas]
