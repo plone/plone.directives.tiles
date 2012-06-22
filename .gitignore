@@ -1,2 +1,7 @@
+.DS_Store
 *.py?
+*.sw?
+
 plone.directives.tiles.egg-info/
+build/
+dist/
