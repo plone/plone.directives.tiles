@@ -3,6 +3,13 @@ from setuptools import find_packages
 
 
 version = '1.0'
+tests_require = [
+    'zope.configuration',
+    'zope.publisher',
+    'zope.traversing',
+    'zope.interface',
+    'zope.schema',
+    ]
 
 setup(
     name='plone.directives.tiles',
@@ -25,11 +32,14 @@ setup(
     zip_safe=False,
     install_requires=[
         'setuptools',
+        'martian',
+        'grokcore.component',
+        'grokcore.security',
+        'zope.component',
+        'plone.tiles',
         'five.grok',
         'zope.deferredimport',
-        'grokcore.component',
-        'grokcore.view',
-        'grokcore.security',
-        'plone.tiles',
         ],
+    tests_require=tests_require,
+    extras_require=dict(test=tests_require),
     )
