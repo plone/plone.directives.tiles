@@ -19,6 +19,15 @@ class add_permission(grokcore.security.require):
     store = martian.ONCE
 
 
+class icon(martian.Directive):
+    """Directive for giving the icon of a tile
+    """
+
+    scope = martian.CLASS
+    store = martian.ONCE
+    validate = martian.validateText
+
+
 class schema(martian.Directive):
     """Directive for giving the schema of a tile
     """
@@ -40,10 +49,11 @@ class TileGrokker(martian.ClassGrokker):
     martian.directive(add_permission)
 
     martian.directive(grokcore.component.description, default=None)
+    martian.directive(icon, default=None)
     martian.directive(schema, default=None)
 
     def execute(self, factory, config, name, title, add_permission,
-                description=None, schema=None):
+                description=None, icon=None, schema=None):
 
         if not add_permission:
             raise martian.error.GrokError(
@@ -56,7 +66,7 @@ class TileGrokker(martian.ClassGrokker):
                 u"You must set a name() on the tile", factory)
 
         type_ = plone.tiles.type.TileType(name, title, add_permission,
-                                          description, schema)
+                                          description, icon, schema)
         zope.component.zcml.utility(config,
                                     provides=plone.tiles.interfaces.ITileType,
                                     component=type_, name=name)
