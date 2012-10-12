@@ -36,7 +36,7 @@ setup(
         'grokcore.component',
         'grokcore.security',
         'zope.component',
-        'plone.tiles',
+        'plone.tiles>=1.1',
         'five.grok',
         'zope.deferredimport',
         ],
