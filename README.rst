@@ -53,6 +53,9 @@ Notes
 Changelog
 =========
 
+- Added icon directive to support plone.tiles >= 1.1.
+  [datakurre]
+
 1.0 (2012-06-23)
 ----------------
 
