@@ -66,7 +66,8 @@ class TileGrokker(martian.ClassGrokker):
                 u"You must set a name() on the tile", factory)
 
         type_ = plone.tiles.type.TileType(name, title, add_permission,
-                                          description, icon, schema)
+                                          description=description,
+                                          icon=icon, schema=schema)
         zope.component.zcml.utility(config,
                                     provides=plone.tiles.interfaces.ITileType,
                                     component=type_, name=name)
