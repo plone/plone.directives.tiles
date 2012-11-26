@@ -3,6 +3,7 @@ import zope.component.testing
 import five.grok.testing
 
 from martian.error import GrokError
+from grokcore.component.testing import grok_component
 from zope.configuration.exceptions import ConfigurationError
 
 from zope.component import getUtility, getMultiAdapter, provideAdapter
@@ -67,7 +68,7 @@ class TestTileGrokking(unittest.TestCase):
             tiles.add_permission(DummyAddPermission)
             tiles.schema(IDummySchema)
 
-        five.grok.testing.grok_component('MyTile', MyTile)
+        grok_component('MyTile', MyTile)
 
         # Check for view
         context = DummyContext()
@@ -94,7 +95,7 @@ class TestTileGrokking(unittest.TestCase):
             tiles.add_permission(DummyAddPermission)
             tiles.schema(IDummySchema)
 
-        five.grok.testing.grok_component('MyTile', MyTile)
+        grok_component('MyTile', MyTile)
 
         # Check for view
         context = DummyContext()
@@ -118,7 +119,7 @@ class TestTileGrokking(unittest.TestCase):
             grok.title(u"My title")
             tiles.add_permission('dummy.AddPermission')
 
-        five.grok.testing.grok_component('MyTile', MyTile)
+        grok_component('MyTile', MyTile)
 
         # Check for view
         context = DummyContext()
@@ -142,7 +143,7 @@ class TestTileGrokking(unittest.TestCase):
             grok.title(u"My title")
             tiles.add_permission('dummy.AddPermission')
 
-        five.grok.testing.grok_component('MyTile', MyTile)
+        grok_component('MyTile', MyTile)
 
         # Check for view
         context = DummyContext()
@@ -169,8 +170,7 @@ class TestTileGrokking(unittest.TestCase):
             # omitted! tiles.add_permission(DummyAddPermission)
             tiles.schema(IDummySchema)
 
-        self.assertRaises(GrokError, five.grok.testing.grok_component,
-                          'MyTile', MyTile)
+        self.assertRaises(GrokError, grok_component, 'MyTile', MyTile)
 
     def test_missing_name(self):
         class MyTile(tiles.Tile):
@@ -184,8 +184,7 @@ class TestTileGrokking(unittest.TestCase):
             tiles.add_permission(DummyAddPermission)
             tiles.schema(IDummySchema)
 
-        self.assertRaises(GrokError, five.grok.testing.grok_component,
-                          'MyTile', MyTile)
+        self.assertRaises(GrokError, grok_component, 'MyTile', MyTile)
 
     def test_missing_title(self):
         class MyTile(tiles.Tile):
@@ -199,8 +198,7 @@ class TestTileGrokking(unittest.TestCase):
             tiles.add_permission(DummyAddPermission)
             tiles.schema(IDummySchema)
 
-        self.assertRaises(GrokError, five.grok.testing.grok_component,
-                          'MyTile', MyTile)
+        self.assertRaises(GrokError, grok_component, 'MyTile', MyTile)
 
     def test_template_association(self):
         class MyTile(tiles.Tile):
@@ -211,7 +209,7 @@ class TestTileGrokking(unittest.TestCase):
             grok.title(u"My title")
             tiles.add_permission('dummy.AddPermission')
 
-        five.grok.testing.grok_component('MyTile', MyTile)
+        grok_component('MyTile', MyTile)
 
         # Check for view
         context = DummyContext()
@@ -234,7 +232,7 @@ class TestTileGrokking(unittest.TestCase):
             def render(self):
                 return '<html><body><b>Good bye</b></body></html>'
 
-        five.grok.testing.grok_component('MyOtherTile', MyOtherTile)
+        grok_component('MyOtherTile', MyOtherTile)
 
         # Check for view
         context = DummyContext()
@@ -258,8 +256,8 @@ class TestTileGrokking(unittest.TestCase):
             # def render(self):
             #                 return '<b>Good bye</b>'
 
-        self.assertRaises(ConfigurationError, five.grok.testing.grok_component,
-                          'MyOtherTile', MyOtherTile)
+        self.assertRaises(ConfigurationError, grok_component, 'MyOtherTile',
+                          MyOtherTile)
 
     def test_getitem(self):
         class MyOtherTile(tiles.Tile):
@@ -281,8 +279,8 @@ class TestTileGrokking(unittest.TestCase):
             def render(self):
                 return 'Dummy view'
 
-        five.grok.testing.grok_component('MyOtherTile', MyOtherTile)
-        five.grok.testing.grok_component('ViewOnTile', ViewOnTile)
+        grok_component('MyOtherTile', MyOtherTile)
+        grok_component('ViewOnTile', ViewOnTile)
 
         context = DummyContext()
         request = TestRequest()
@@ -332,8 +330,8 @@ class TestTileGrokking(unittest.TestCase):
                 return ({'name': u'context',
                          'url': 'http://example.com/context'},)
 
-        five.grok.testing.grok_component('MyOtherTile', MyOtherTile)
-        five.grok.testing.grok_component('DummyAbsoluteURL', DummyAbsoluteURL)
+        grok_component('MyOtherTile', MyOtherTile)
+        grok_component('DummyAbsoluteURL', DummyAbsoluteURL)
 
         from plone.tiles.absoluteurl import TransientTileAbsoluteURL
         provideAdapter(TransientTileAbsoluteURL, adapts=(ITile, Interface,),
