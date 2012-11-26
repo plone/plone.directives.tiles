@@ -2,7 +2,7 @@ from setuptools import setup
 from setuptools import find_packages
 
 
-version = '1.1'
+version = '1.2dev'
 tests_require = [
     'zope.configuration',
     'zope.publisher',
