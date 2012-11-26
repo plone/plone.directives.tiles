@@ -4,7 +4,8 @@ import zope.deferredimport
 # Grokked tile base classes
 #
 
-zope.deferredimport.defineFrom('plone.directives.tiles.components',
+zope.deferredimport.defineFrom(
+    'plone.directives.tiles.components',
     'Tile', 'PersistentTile',
 )
 
@@ -12,7 +13,8 @@ zope.deferredimport.defineFrom('plone.directives.tiles.components',
 # Directives
 #
 
-zope.deferredimport.defineFrom('plone.directives.tiles.meta',
+zope.deferredimport.defineFrom(
+    'plone.directives.tiles.meta',
     'add_permission', 'schema',
 )
 
@@ -20,6 +22,7 @@ zope.deferredimport.defineFrom('plone.directives.tiles.meta',
 # Convenience import for directives used by tiles
 #
 
-zope.deferredimport.defineFrom('five.grok',
+zope.deferredimport.defineFrom(
+    'five.grok',
     'context', 'require', 'name', 'layer', 'title', 'description',
 )
