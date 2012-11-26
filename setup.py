@@ -9,7 +9,7 @@ tests_require = [
     'zope.traversing',
     'zope.interface',
     'zope.schema',
-    ]
+]
 
 setup(
     name='plone.directives.tiles',
@@ -20,7 +20,7 @@ setup(
         "Framework :: Plone",
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
-        ],
+    ],
     keywords='plone tiles deco blocks grok directives',
     author='Martin Aspeli',
     author_email='optilude@gmail.com',
@@ -39,7 +39,7 @@ setup(
         'plone.tiles>=1.1',
         'five.grok',
         'zope.deferredimport',
-        ],
+    ],
     tests_require=tests_require,
     extras_require=dict(test=tests_require),
-    )
+)
