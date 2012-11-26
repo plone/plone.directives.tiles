@@ -1,6 +1,9 @@
 This package provides declarative configuration (grokkers) for the
 `plone.tiles <http://pypi.python.org/pypi/plone.tiles>`_ package.
 
+.. image:: https://secure.travis-ci.org/plone/plone.directives.tiles.png?branch=master
+    :target: http://travis-ci.org/plone/plone.tiles
+
 .. contents::
 
 Usage
@@ -52,6 +55,9 @@ Notes
 
 Changelog
 =========
+
+1.1 (2012-11-26)
+----------------
 
 - Added icon directive to support plone.tiles >= 1.1.
   [datakurre]
