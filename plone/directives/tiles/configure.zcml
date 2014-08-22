@@ -2,7 +2,7 @@
 
     <include package="five.grok" />
     <include package="plone.tiles" />
-    
+
     <include file="meta.zcml" />
 
 </configure>

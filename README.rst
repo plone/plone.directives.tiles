@@ -21,11 +21,11 @@ A basic tile is configured like this::
     class MyTile(tiles.Tile):
         grok.context(IContext)
         grok.require('zope2.View')
-        
+
         grok.name('my.tile')
         grok.title(_(u"My title"))
         grok.description(_(u"My description"))
-        
+
         tiles.add_permission('mypackage.AddMyTile')
         tiles.schema(IMyTileSchema)
 
@@ -38,7 +38,7 @@ Notes
 * The ``context()``, ``requires()``, ``name()``, and ``layer()`` directives
   are used in the same way as they are for a view derived from ``grok.View``.
 * Templates are associated using the same semantics as are used for views. For
-  example, a tile in ``mytiles.py`` defined in the class ``MyTile`` would 
+  example, a tile in ``mytiles.py`` defined in the class ``MyTile`` would
   be associated with a template ``mytiles_templates/mytile.pt`` by default.
 * Unlike a view, the ``name()`` directive is required and should give a dotted
   name for the tile by convention.
