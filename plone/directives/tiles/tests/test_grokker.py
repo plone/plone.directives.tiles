@@ -16,7 +16,7 @@ from plone.tiles.interfaces import ITileType, ITile
 from five import grok
 from plone.directives import tiles
 
-from zope.interface import Interface, implements
+from zope.interface import Interface, implementer
 from zope import schema
 
 
@@ -34,8 +34,9 @@ class IDummyContext(Interface):
     pass
 
 
+@implementer(IDummyContext)
 class DummyContext(object):
-    implements(IDummyContext)
+    pass
 
 
 class IDummySchema(Interface):
