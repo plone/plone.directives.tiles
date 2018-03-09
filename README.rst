@@ -57,8 +57,16 @@ Changelog
 =========
 
 1.2 (unreleased)
----------------
+----------------
 
+- Use zope.interface decorators.
+  [gforcada]
+
+- Change i18n domain.
+  [thet]
+
+- Cleanup package.
+  [maurits]
 
 1.1 (2012-11-26)
 ----------------
