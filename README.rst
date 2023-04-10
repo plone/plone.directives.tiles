@@ -1,3 +1,7 @@
+This repository is archived and read only.
+
+If you want to unarchive it, then post to the [Admin & Infrastructure (AI) Team category on the Plone Community Forum](https://community.plone.org/c/aiteam/55).
+
 This package provides declarative configuration (grokkers) for the
 `plone.tiles <http://pypi.python.org/pypi/plone.tiles>`_ package.
 
